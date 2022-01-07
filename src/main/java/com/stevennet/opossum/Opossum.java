@@ -1,12 +1,16 @@
 package com.stevennet.opossum;
 
+import com.stevennet.opossum.entities.OpossumEntity;
+import com.stevennet.opossum.init.MobEntityTypes;
 import com.stevennet.opossum.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -34,6 +38,8 @@ public class Opossum
         // Register the setup method for modloading
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        MobEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
+
         ModItems.register(eventBus);
 
         eventBus.addListener(this::setup);
@@ -48,12 +54,14 @@ public class Opossum
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+    private void setup(final FMLCommonSetupEvent event) {
+        DeferredWorkQueue.runLater(() -> {
+            GlobalEntityTypeAttributes.put(MobEntityTypes.OPOSSUM.get(), OpossumEntity.setCustomAttributes().create());
+        });
     }
+
+
+
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
