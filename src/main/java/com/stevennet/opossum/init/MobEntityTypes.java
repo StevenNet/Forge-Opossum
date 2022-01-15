@@ -15,7 +15,7 @@ public class MobEntityTypes {
     // entity types
     public static final RegistryObject<EntityType<OpossumEntity>> OPOSSUM = ENTITY_TYPES.register("opossum",
             () -> EntityType.Builder.create(OpossumEntity::new, EntityClassification.CREATURE )
-                    .size(0.6f, 0.4f)
+                    .size(0.5f, 0.4f)
                     .build(new ResourceLocation(Opossum.MOD_ID, "opossum").toString()));
 
 }

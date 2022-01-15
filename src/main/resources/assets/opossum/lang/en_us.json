@@ -1,5 +1,6 @@
 {
   "item.opossum.fud": "füd",
   "item.opossum.golden_fud": "Golden füd",
-  "entity.opossum.opossum": "Opossum"
+  "entity.opossum.opossum": "Opossum",
+  "item.opossum.opossum_spawn_egg": "Opossum Spawn Egg"
 }

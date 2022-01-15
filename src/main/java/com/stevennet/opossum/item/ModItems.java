@@ -1,6 +1,7 @@
 package com.stevennet.opossum.item;
 
 import com.stevennet.opossum.Opossum;
+import com.stevennet.opossum.init.MobEntityTypes;
 import net.minecraft.advancements.criterion.MobEffectsPredicate;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
@@ -16,6 +17,9 @@ public class ModItems {
 
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Opossum.MOD_ID);
+
+    public static final RegistryObject<ModSpawnEggItem> OPOSSUM_SPAWN_EGG = ITEMS.register("opossum_spawn_egg",
+            () -> new ModSpawnEggItem(MobEntityTypes.OPOSSUM, 0x998882, 0x000000, new Item.Properties().group(ItemGroup.MISC)));
 
 
     public static final RegistryObject<Item> FUD = ITEMS.register("fud",

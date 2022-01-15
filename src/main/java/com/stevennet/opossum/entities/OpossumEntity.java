@@ -2,7 +2,6 @@ package com.stevennet.opossum.entities;
 
 import com.stevennet.opossum.init.MobEntityTypes;
 import com.stevennet.opossum.item.ModItems;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
